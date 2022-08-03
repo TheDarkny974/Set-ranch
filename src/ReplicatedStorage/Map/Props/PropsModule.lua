@@ -13,7 +13,7 @@ local TweenService = game:GetService("TweenService")
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateOpenAnim(Handle, Hinge)
+function PropsModule.GateOpen(Handle, Hinge)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -28,6 +28,8 @@ function PropsModule.GateOpenAnim(Handle, Hinge)
 	Handle.WeldConstraint.Enabled = false
 	Handle.Anchored = true
 	
+
+
 	HandleTween:Play()
 	HandleTween.Completed:Connect(function()
 		local HandleOpeningMovement = {} HandleOpeningMovement.CFrame = Handle.CFrame * CFrame.new(0.7,0,0)
@@ -45,16 +47,15 @@ function PropsModule.GateOpenAnim(Handle, Hinge)
 			end)
 		end)
 	end)
-
 end
 
 --[=[
-	The same as [PropsModule.GateOpenAnim](/api/PropsModule#GateOpenAnim) except it closes the gate instead
+	The same as [PropsModule.GateOpen](/api/PropsModule#GateOpen) except it closes the gate instead
 	@param Handle Part -- Important, it represents the lock of the gate
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateCloseAnim(Handle, Hinge)
+function PropsModule.GateClose(Handle, Hinge)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -71,6 +72,8 @@ function PropsModule.GateCloseAnim(Handle, Hinge)
 
 		local HandleClosingMovement = {} HandleClosingMovement.CFrame = Handle.CFrame * CFrame.new(-0.7,0,0)
 		local HandleClosingAnim = TweenService:Create(Handle, tweenInfo, HandleClosingMovement)
+
+
 
 		HandleClosingAnim:Play()
 		HandleClosingAnim.Completed:Connect(function()
@@ -90,7 +93,7 @@ function PropsModule.GateCloseAnim(Handle, Hinge)
 end
 
 --[=[
-	Used when players interact with a light switch (it animates it)
+	Used when players interact with a light switch to make it move correctly.
 	@param IsLightOn Bool -- Important, used to know whether or not the light is on and therefore if the switch should be on `On` or `Off`
 ]=]
 
@@ -105,7 +108,7 @@ function PropsModule.LightSwitch(IsLightOn)
 end
 
 --[=[
-	Used to animate a door
+	Similar to [PropsModule.GateOpen](/api/PropsModule#GateOpe) except it is used for simple doors.
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
@@ -142,6 +145,33 @@ function PropsModule.CloseDoor(Hinge)
 		Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = true
 		Hinge.Parent.PorteTest.Attachment.ProximityPrompt.ActionText = "Open"
 	end)
+end
+
+--[=[
+	Turns On or Off street lights scattered all around the map.
+	@param IsNightOn Bool-- Important, if true, it will turn on every StreetLight, if false it will turn them off
+
+	:::caution
+	this can easily make the game lag if done too much and too quickly
+	:::
+]=]
+
+function PropsModule.StreetLights(IsNightOn)
+	if IsNightOn then
+		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Night, turn on the lights
+			if v:IsA("Model") and v.Name == "LanternPost" then
+				v.LightPart.PointLight.Enabled = true
+				v.Union.Color = Color3.fromRGB(253, 234, 141)
+            end
+        end 
+	else
+		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Day, turn off the lights
+            if v:IsA("Model") and v.Name == "LanternPost" then -- Do the same, but for models
+				v.LightPart.PointLight.Enabled = false
+				v.Union.Color = Color3.fromRGB(0,0,0)				
+            end
+        end
+	end	
 end
 
 return PropsModule
