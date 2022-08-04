@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.21">
+<title data-rh="true">Weather | Set-ranch</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://TheDarkny974.github.io/Set-ranch/api/Weather"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Weather | Set-ranch"><meta data-rh="true" name="description" content="This is the class storing every functions used to handle the weather"><meta data-rh="true" property="og:description" content="This is the class storing every functions used to handle the weather"><link data-rh="true" rel="canonical" href="https://TheDarkny974.github.io/Set-ranch/api/Weather"><link data-rh="true" rel="alternate" href="https://TheDarkny974.github.io/Set-ranch/api/Weather" hreflang="en"><link data-rh="true" rel="alternate" href="https://TheDarkny974.github.io/Set-ranch/api/Weather" hreflang="x-default"><link rel="stylesheet" href="/Set-ranch/assets/css/styles.bc734c04.css">
+<link rel="preload" href="/Set-ranch/assets/js/runtime~main.6e3a43fa.js" as="script">
+<link rel="preload" href="/Set-ranch/assets/js/main.ce6ce855.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Set-ranch/"><b class="navbar__title text--truncate">Set-ranch</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Set-ranch/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/TheDarkny974/Set-ranch" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_lCJq"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Set-ranch/api/PropsModule">​Props​Module</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Set-ranch/api/Weather">​Weather</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Set-ranch/api/WindShake">​Wind​Shake</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Weather</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>This is the class storing every functions used to handle the weather</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="SetClouds"><code style="text-decoration:none">SetClouds</code><a class="hash-link" href="#SetClouds" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L33"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">SetClouds</code><code>(</code><div class="inset_uKQm"><div><code>CloudsCover<!-- -->: </code><code class="blue_P4bS">Float</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Changes how cloudy the sky is (between 0 and 1)</p>
+</span></span></div><div><code>CloudsDensity<!-- -->: </code><code class="blue_P4bS">Float</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Changes how strong or thick the clouds are (between 0 and 1)</p>
+</span></span></div><div><code>CloudsColor<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Color3" target="_blank" rel="noopener noreferrer">Color3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>Changes the color of the clouds (optional)</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Used to change clouds (cover, density and color).</p>
+<pre class="language-lua"><code class="language-lua">Weather<span class="token punctuation">:</span><span class="token function">SetClouds</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">,</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">--OR</span>
+Weather<span class="token punctuation">:</span><span class="token function">SetClouds</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">)</span> <span class="token comment">-- setting the color is optional</span>
+</code></pre>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <ul>
+      <li>'CloudsCover' and 'CloudsDensity' can have values above 1, but it will not be different than setting it to 1.</li>
+      <li>Right now it takes 5s for the game to complete the modification, to change that just change the value in 'TweenInfo.new(5)'</li>
+    </ul>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="SetWind"><code style="text-decoration:none">SetWind</code><a class="hash-link" href="#SetWind" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L61"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">SetWind</code><code>(</code><div class="inset_uKQm"><div><code>WindPower<!-- -->: </code><code class="blue_P4bS">Float</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Changes how strong the wind is.</p>
+</span></span></div><div><code>WindSpeed<!-- -->: </code><code class="blue_P4bS">Float</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Changes how rapidly objects hit by the wind move</p>
+</span></span></div><div><code>WindDirection<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Used to change the speed and power of the wind by changing the attributes of the 'WindShake' module.</p>
+<div class="admonition admonition-caution alert alert--warning">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+        </svg></span>caution</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      Changing the wind way too fast may result in the game lagging and objects supposedly hit by the 'WindShake' module to not move
+      as they do not have enough time to adapt to the new settings
+    </p>
+  </div>
+</div>
+<pre class="language-lua"><code class="language-lua">Weather<span class="token punctuation">:</span><span class="token function">SetWind</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> Vector3<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">--OR</span>
+Weather<span class="token punctuation">:</span><span class="token function">SetWind</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Setting the direction is optional</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Clear"><code style="text-decoration:none">Clear</code><a class="hash-link" href="#Clear" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L72"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">Clear</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Will clear the weather of everything.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Storm"><code style="text-decoration:none">Storm</code><a class="hash-link" href="#Storm" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L84"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">Storm</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Activates rain.<br>Changes clouds' cover, density and color.<br>Changes Wind's power and speed.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Windy"><code style="text-decoration:none">Windy</code><a class="hash-link" href="#Windy" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L96"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">Windy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Plays a wind sound
+  Changes wind's power and speed
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cloudy"><code style="text-decoration:none">Cloudy</code><a class="hash-link" href="#Cloudy" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L105"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">Cloudy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Makes the sky more covered</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Rain"><code style="text-decoration:none">Rain</code><a class="hash-link" href="#Rain" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Weather.lua#L119"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Weather<!-- -->:</code><code class="green_DgR4">Rain</code><code>(</code><div class="inset_uKQm"><div><code>TurnOn<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>If true, the rain will be activated, if false it will be turned off</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Activates or deactivates the rain</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>It does not modify anything related to the sky/clouds.<br>Which means you can use the function while the sky is completely clear, it will not change that.</p>
+  </div>
+</div>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;SetClouds&quot;,
+            &quot;desc&quot;: &quot;Used to change clouds (cover, density and color).\n\n\n```lua\nWeather:SetClouds(0.5, 0.7, Color3.fromRGB(255,255,255))\n--OR\nWeather:SetClouds(0.5,0.7) -- setting the color is optional\n```\n:::info\n* &#x27;CloudsCover&#x27; and &#x27;CloudsDensity&#x27; can have values above 1, but it will not be different than setting it to 1.\n* Right now it takes 5s for the game to complete the modification, to change that just change the value in &#x27;TweenInfo.new(5)&#x27;\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CloudsCover&quot;,
+                    &quot;desc&quot;: &quot;Changes how cloudy the sky is (between 0 and 1)&quot;,
+                    &quot;lua_type&quot;: &quot;Float&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;CloudsDensity&quot;,
+                    &quot;desc&quot;: &quot;Changes how strong or thick the clouds are (between 0 and 1)&quot;,
+                    &quot;lua_type&quot;: &quot;Float&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;CloudsColor&quot;,
+                    &quot;desc&quot;: &quot;Changes the color of the clouds (optional)&quot;,
+                    &quot;lua_type&quot;: &quot;Color3&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 33,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;SetWind&quot;,
+            &quot;desc&quot;: &quot;Used to change the speed and power of the wind by changing the attributes of the &#x27;WindShake&#x27; module. \n:::caution\nChanging the wind way too fast may result in the game lagging and objects supposedly hit by the &#x27;WindShake&#x27; module to not move\nas they do not have enough time to adapt to the new settings\n:::\n\n```lua\nWeather:SetWind(0.5, 2, Vector3.new(0.5,0.5,0.5))\n--OR\nWeather:SetWind(0.5,2) -- Setting the direction is optional\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;WindPower&quot;,
+                    &quot;desc&quot;: &quot;Changes how strong the wind is.&quot;,
+                    &quot;lua_type&quot;: &quot;Float&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;WindSpeed&quot;,
+                    &quot;desc&quot;: &quot;Changes how rapidly objects hit by the wind move&quot;,
+                    &quot;lua_type&quot;: &quot;Float&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;WindDirection&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3?&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 61,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Clear&quot;,
+            &quot;desc&quot;: &quot;Will clear the weather of everything.  &quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 72,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Storm&quot;,
+            &quot;desc&quot;: &quot;Activates rain.  \nChanges clouds&#x27; cover, density and color.  \nChanges Wind&#x27;s power and speed. &quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 84,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Windy&quot;,
+            &quot;desc&quot;: &quot;Plays a wind sound\nChanges wind&#x27;s power and speed&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 96,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Cloudy&quot;,
+            &quot;desc&quot;: &quot;Makes the sky more covered&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 105,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Rain&quot;,
+            &quot;desc&quot;: &quot;Activates or deactivates the rain\n\n:::info \nIt does not modify anything related to the sky/clouds.          \nWhich means you can use the function while the sky is completely clear, it will not change that. \n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;TurnOn&quot;,
+                    &quot;desc&quot;: &quot;- If true, the rain will be activated, if false it will be turned off&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 119,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;Weather&quot;,
+    &quot;desc&quot;: &quot;This is the class storing every functions used to handle the weather&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 7,
+        &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Weather.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Clear" class="table-of-contents__link toc-highlight">:Clear</a></li><li><a href="#Cloudy" class="table-of-contents__link toc-highlight">:Cloudy</a></li><li><a href="#Rain" class="table-of-contents__link toc-highlight">:Rain</a></li><li><a href="#SetClouds" class="table-of-contents__link toc-highlight">:SetClouds</a></li><li><a href="#SetWind" class="table-of-contents__link toc-highlight">:SetWind</a></li><li><a href="#Storm" class="table-of-contents__link toc-highlight">:Storm</a></li><li><a href="#Windy" class="table-of-contents__link toc-highlight">:Windy</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 TheDarkny974. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Set-ranch/assets/js/runtime~main.6e3a43fa.js"></script>
+<script src="/Set-ranch/assets/js/main.ce6ce855.js"></script>
+</body>
+</html>

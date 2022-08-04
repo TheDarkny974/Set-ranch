@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.21">
+<title data-rh="true">WindShake | Set-ranch</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://TheDarkny974.github.io/Set-ranch/api/WindShake"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="WindShake | Set-ranch"><meta data-rh="true" name="description" content=" 
+This is the class storing everything related to the wind system, the system was made by &quot;boatbomber&quot;, see his post on the devforum to know more"><meta data-rh="true" property="og:description" content=" 
+This is the class storing everything related to the wind system, the system was made by &quot;boatbomber&quot;, see his post on the devforum to know more"><link data-rh="true" rel="canonical" href="https://TheDarkny974.github.io/Set-ranch/api/WindShake"><link data-rh="true" rel="alternate" href="https://TheDarkny974.github.io/Set-ranch/api/WindShake" hreflang="en"><link data-rh="true" rel="alternate" href="https://TheDarkny974.github.io/Set-ranch/api/WindShake" hreflang="x-default"><link rel="stylesheet" href="/Set-ranch/assets/css/styles.bc734c04.css">
+<link rel="preload" href="/Set-ranch/assets/js/runtime~main.6e3a43fa.js" as="script">
+<link rel="preload" href="/Set-ranch/assets/js/main.ce6ce855.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Set-ranch/"><b class="navbar__title text--truncate">Set-ranch</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Set-ranch/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/TheDarkny974/Set-ranch" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_lCJq"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Set-ranch/api/PropsModule">​Props​Module</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Set-ranch/api/Weather">​Weather</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Set-ranch/api/WindShake">​Wind​Shake</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Wind</span><span style="display:inline-block">Shake</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>This is the class storing everything related to the wind system, the system was made by "boatbomber", see his post on the devforum to know more</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Init"><code style="text-decoration:none">Init</code><a class="hash-link" href="#Init" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L69"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">Init</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Initializes the wind shake logic and adds shake to all tagged objects</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AddObjectShake"><code style="text-decoration:none">AddObjectShake</code><a class="hash-link" href="#AddObjectShake" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L129"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">AddObjectShake</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Part" target="_blank" rel="noopener noreferrer">Part<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>The object to apply shaking to</li>
+</ul>
+</span></span></div><div><code>settingsTable<!-- -->: </code><code class="blue_P4bS">WindShakeSettings</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>A table containing the settings to apply to this object's shake</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Adds an object to be shaken</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>The 'WindShakeSettings' is a table storing values of the wind's direction, speed and power.<br>Here is an example of how it is set in the module itself :</p>
+    <pre class="language-lua"><code class="language-lua">export type WindShakeSettings <span class="token operator">=</span> <span class="token punctuation">{</span>
+	WindDirection<span class="token punctuation">:</span> Vector3?<span class="token punctuation">,</span>
+	WindSpeed<span class="token punctuation">:</span> number?<span class="token punctuation">,</span>
+	WindPower<span class="token punctuation">:</span> number?<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RemoveObjectShake"><code style="text-decoration:none">RemoveObjectShake</code><a class="hash-link" href="#RemoveObjectShake" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L163"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">RemoveObjectShake</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Part" target="_blank" rel="noopener noreferrer">Part<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>The Object to remove shaking from</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Removes shake from an object</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Pause"><code style="text-decoration:none">Pause</code><a class="hash-link" href="#Pause" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L256"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">Pause</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Halts the wind shake logic without clearing</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Resume"><code style="text-decoration:none">Resume</code><a class="hash-link" href="#Resume" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L272"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">Resume</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Restarts the wind shake logic without clearing</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cleanup"><code style="text-decoration:none">Cleanup</code><a class="hash-link" href="#Cleanup" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L290"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">Cleanup</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Halts and clears the wind shake logic and all object shakes</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="UpdateAllObjectSettings"><code style="text-decoration:none">UpdateAllObjectSettings</code><a class="hash-link" href="#UpdateAllObjectSettings" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L347"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">UpdateAllObjectSettings</code><code>(</code><div class="inset_uKQm"><div><code>settingsTable<!-- -->: </code><code class="blue_P4bS">WindShakeSettings</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>The settings to apply to all objects’ shake</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Updates the shake settings of all active shakes</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="UpdateObjectSettings"><code style="text-decoration:line-through">UpdateObjectSettings</code><a class="hash-link" href="#UpdateObjectSettings" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in </span><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L322"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in null</h5></div><div class="admonition-content"><p>Use &#x27;UpdateAllObjectSettings&#x27; instead.</p></div></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">UpdateObjectSettings</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Part" target="_blank" rel="noopener noreferrer">Part<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>The Object to apply shake settings to</li>
+</ul>
+</span></span></div><div><code>settingsTable<!-- -->: </code><code class="blue_P4bS">WindShakeSettings</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>A table containing the settings to apply to this object's shake</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Updates the shake settings of an object already added</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="SetDefaultSettings"><code style="text-decoration:line-through">SetDefaultSettings</code><a class="hash-link" href="#SetDefaultSettings" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in </span><a class="sourceButton_sEho" href="https://github.com/TheDarkny974/Set-ranch/blob/master/src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua#L366"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in null</h5></div><div class="admonition-content"><p>Deprecated in favor of setting the Attributes of the WindShake modulescript</p></div></div><div class="memberString_GwaU"><code>WindShake<!-- -->:</code><code class="green_DgR4">SetDefaultSettings</code><code>(</code><div class="inset_uKQm"><div><code>settingsTable<!-- -->: </code><code class="blue_P4bS">WindShakeSettings</code><span class="inlineDescription_G7Er">-- <span>
+<ul>
+  <li>The settings to use as default</li>
+</ul>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Sets the default settings for future object shake additions</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;Init&quot;,
+            &quot;desc&quot;: &quot;Initializes the wind shake logic and adds shake to all tagged objects&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 69,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;AddObjectShake&quot;,
+            &quot;desc&quot;: &quot;Adds an object to be shaken\n\n:::info\nThe &#x27;WindShakeSettings&#x27; is a table storing values of the wind&#x27;s direction, speed and power.     \nHere is an example of how it is set in the module itself :\n```lua\nexport type WindShakeSettings = {\n\tWindDirection: Vector3?,\n\tWindSpeed: number?,\n\tWindPower: number?,\n}\n```\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;- The object to apply shaking to&quot;,
+                    &quot;lua_type&quot;: &quot;Part&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;settingsTable&quot;,
+                    &quot;desc&quot;: &quot;- A table containing the settings to apply to this object&#x27;s shake&quot;,
+                    &quot;lua_type&quot;: &quot;WindShakeSettings&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 129,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;RemoveObjectShake&quot;,
+            &quot;desc&quot;: &quot;Removes shake from an object&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;- The Object to remove shaking from&quot;,
+                    &quot;lua_type&quot;: &quot;Part&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 163,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Pause&quot;,
+            &quot;desc&quot;: &quot;Halts the wind shake logic without clearing&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 256,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Resume&quot;,
+            &quot;desc&quot;: &quot;Restarts the wind shake logic without clearing&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 272,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Cleanup&quot;,
+            &quot;desc&quot;: &quot;Halts and clears the wind shake logic and all object shakes&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 290,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;UpdateObjectSettings&quot;,
+            &quot;desc&quot;: &quot;Updates the shake settings of an object already added&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;- The Object to apply shake settings to&quot;,
+                    &quot;lua_type&quot;: &quot;Part&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;settingsTable&quot;,
+                    &quot;desc&quot;: &quot;- A table containing the settings to apply to this object&#x27;s shake&quot;,
+                    &quot;lua_type&quot;: &quot;WindShakeSettings&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: null,
+                &quot;desc&quot;: &quot;Use &#x27;UpdateAllObjectSettings&#x27; instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 322,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;UpdateAllObjectSettings&quot;,
+            &quot;desc&quot;: &quot;Updates the shake settings of all active shakes&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;settingsTable&quot;,
+                    &quot;desc&quot;: &quot;- The settings to apply to all objects’ shake&quot;,
+                    &quot;lua_type&quot;: &quot;WindShakeSettings&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 347,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;SetDefaultSettings&quot;,
+            &quot;desc&quot;: &quot;Sets the default settings for future object shake additions&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;settingsTable&quot;,
+                    &quot;desc&quot;: &quot;- The settings to use as default&quot;,
+                    &quot;lua_type&quot;: &quot;WindShakeSettings&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: null,
+                &quot;desc&quot;: &quot;Deprecated in favor of setting the Attributes of the WindShake modulescript&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 366,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;WindShake&quot;,
+    &quot;desc&quot;: &quot; \nThis is the class storing everything related to the wind system, the system was made by \&quot;boatbomber\&quot;, see his post on the devforum to know more&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 5,
+        &quot;path&quot;: &quot;src/ReplicatedStorage/Ambiance/Wheather/Wind/WindShake/init.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddObjectShake" class="table-of-contents__link toc-highlight">:AddObjectShake</a></li><li><a href="#Cleanup" class="table-of-contents__link toc-highlight">:Cleanup</a></li><li><a href="#Init" class="table-of-contents__link toc-highlight">:Init</a></li><li><a href="#Pause" class="table-of-contents__link toc-highlight">:Pause</a></li><li><a href="#RemoveObjectShake" class="table-of-contents__link toc-highlight">:RemoveObjectShake</a></li><li><a href="#Resume" class="table-of-contents__link toc-highlight">:Resume</a></li><li><a href="#SetDefaultSettings" class="table-of-contents__link toc-highlight">:SetDefaultSettings</a></li><li><a href="#UpdateAllObjectSettings" class="table-of-contents__link toc-highlight">:UpdateAllObjectSettings</a></li><li><a href="#UpdateObjectSettings" class="table-of-contents__link toc-highlight">:UpdateObjectSettings</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 TheDarkny974. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Set-ranch/assets/js/runtime~main.6e3a43fa.js"></script>
+<script src="/Set-ranch/assets/js/main.ce6ce855.js"></script>
+</body>
+</html>
