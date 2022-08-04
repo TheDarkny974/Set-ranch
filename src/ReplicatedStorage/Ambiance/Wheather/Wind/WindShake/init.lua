@@ -1,3 +1,9 @@
+--[=[ 
+	@class WindShake
+	This is the class storing everything related to the wind system, the system was made by "boatbomber", see his post on the devforum to know more
+]=]
+
+
 
 local CollectionService = game:GetService("CollectionService")
 local RunService = game:GetService("RunService")
@@ -57,6 +63,69 @@ function WindShake:Connect(funcName: string, event: RBXScriptSignal): RBXScriptC
 	end)
 end
 
+--[=[
+	Initializes the wind shake logic and adds shake to all tagged objects
+]=]
+
+function WindShake:Init()
+	if self.Initialized then
+		return
+	else
+		self.Initialized = true
+	end
+
+	-- Define attributes if they're undefined.
+	local power = script:GetAttribute("WindPower")
+	local speed = script:GetAttribute("WindSpeed")
+	local direction = script:GetAttribute("WindDirection")
+
+	if typeof(power) ~= "number" then
+		script:SetAttribute("WindPower", DEFAULT_SETTINGS.WindPower)
+	end
+
+	if typeof(speed) ~= "number" then
+		script:SetAttribute("WindSpeed", DEFAULT_SETTINGS.WindSpeed)
+	end
+
+	if typeof(direction) ~= "Vector3" then
+		script:SetAttribute("WindDirection", DEFAULT_SETTINGS.WindDirection)
+	end
+
+	-- Clear any old stuff.
+	self:Cleanup()
+
+	-- Wire up tag listeners.
+	local windShakeAdded = CollectionService:GetInstanceAddedSignal(COLLECTION_TAG)
+	self.AddedConnection = self:Connect("AddObjectShake", windShakeAdded)
+
+	local windShakeRemoved = CollectionService:GetInstanceRemovedSignal(COLLECTION_TAG)
+	self.RemovedConnection = self:Connect("RemoveObjectShake", windShakeRemoved)
+
+	for _,object in pairs(CollectionService:GetTagged(COLLECTION_TAG)) do
+		self:AddObjectShake(object)
+	end
+
+	-- Automatically start.
+	self:Resume()
+end
+
+--[=[
+	Adds an object to be shaken
+	@param object Part --- The object to apply shaking to
+	@param settingsTable WindShakeSettings --- A table containing the settings to apply to this object's shake
+
+	:::info
+	The 'WindShakeSettings' is a table storing values of the wind's direction, speed and power.     
+	Here is an example of how it is set in the module itself :
+	```lua
+	export type WindShakeSettings = {
+		WindDirection: Vector3?,
+		WindSpeed: number?,
+		WindPower: number?,
+	}
+	```
+	:::
+]=]
 function WindShake:AddObjectShake(object: BasePart, settingsTable: WindShakeSettings?)
 	if typeof(object) ~= "Instance" then
 		return
@@ -86,6 +155,11 @@ function WindShake:AddObjectShake(object: BasePart, settingsTable: WindShakeSett
 
 	ObjectShakeAddedEvent:Fire(object)
 end
+
+--[=[
+	Removes shake from an object
+	@param object Part --- The Object to remove shaking from
+]=]
 
 function WindShake:RemoveObjectShake(object: BasePart)
 	if typeof(object) ~= "Instance" then
@@ -176,6 +250,10 @@ function WindShake:Update()
 	debug.profileend()
 end
 
+--[=[
+	Halts the wind shake logic without clearing
+]=]
+
 function WindShake:Pause()
 	if self.UpdateConnection then
 		self.UpdateConnection:Disconnect()
@@ -187,6 +265,10 @@ function WindShake:Pause()
 
 	PausedEvent:Fire()
 end
+
+--[=[
+	Restarts the wind shake logic without clearing
+]=]
 
 function WindShake:Resume()
 	if self.Running then
@@ -201,47 +283,10 @@ function WindShake:Resume()
 	ResumedEvent:Fire()
 end
 
-function WindShake:Init()
-	if self.Initialized then
-		return
-	else
-		self.Initialized = true
-	end
 
-	-- Define attributes if they're undefined.
-	local power = script:GetAttribute("WindPower")
-	local speed = script:GetAttribute("WindSpeed")
-	local direction = script:GetAttribute("WindDirection")
-
-	if typeof(power) ~= "number" then
-		script:SetAttribute("WindPower", DEFAULT_SETTINGS.WindPower)
-	end
-
-	if typeof(speed) ~= "number" then
-		script:SetAttribute("WindSpeed", DEFAULT_SETTINGS.WindSpeed)
-	end
-
-	if typeof(direction) ~= "Vector3" then
-		script:SetAttribute("WindDirection", DEFAULT_SETTINGS.WindDirection)
-	end
-
-	-- Clear any old stuff.
-	self:Cleanup()
-
-	-- Wire up tag listeners.
-	local windShakeAdded = CollectionService:GetInstanceAddedSignal(COLLECTION_TAG)
-	self.AddedConnection = self:Connect("AddObjectShake", windShakeAdded)
-
-	local windShakeRemoved = CollectionService:GetInstanceRemovedSignal(COLLECTION_TAG)
-	self.RemovedConnection = self:Connect("RemoveObjectShake", windShakeRemoved)
-
-	for _,object in pairs(CollectionService:GetTagged(COLLECTION_TAG)) do
-		self:AddObjectShake(object)
-	end
-
-	-- Automatically start.
-	self:Resume()
-end
+--[=[
+	Halts and clears the wind shake logic and all object shakes
+]=]
 
 function WindShake:Cleanup()
 	if not self.Initialized then
@@ -268,6 +313,13 @@ function WindShake:Cleanup()
 	self.Initialized = false
 end
 
+--[=[
+	Updates the shake settings of an object already added
+	@param object Part --- The Object to apply shake settings to
+	@param settingsTable WindShakeSettings --- A table containing the settings to apply to this object's shake
+	@deprecated -- Use 'UpdateAllObjectSettings' instead.
+]=]
+
 function WindShake:UpdateObjectSettings(object: Instance, settingsTable: WindShakeSettings)
 	if typeof(object) ~= "Instance" then
 		return
@@ -288,6 +340,11 @@ function WindShake:UpdateObjectSettings(object: Instance, settingsTable: WindSha
 	ObjectShakeUpdatedEvent:Fire(object)
 end
 
+--[=[
+	Updates the shake settings of all active shakes
+	@param settingsTable WindShakeSettings --- The settings to apply to all objects’ shake
+]=]
+
 function WindShake:UpdateAllObjectSettings(settingsTable: WindShakeSettings)
 	if typeof(settingsTable) ~= "table" then
 		return
@@ -300,6 +357,12 @@ function WindShake:UpdateAllObjectSettings(settingsTable: WindShakeSettings)
 		ObjectShakeUpdatedEvent:Fire(obj)
 	end
 end
+
+--[=[
+	Sets the default settings for future object shake additions
+	@param settingsTable WindShakeSettings --- The settings to use as default
+	@deprecated -- Deprecated in favor of setting the Attributes of the WindShake modulescript
+]=]
 
 function WindShake:SetDefaultSettings(settingsTable: WindShakeSettings)
 	self:UpdateObjectSettings(script, settingsTable)

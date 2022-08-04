@@ -82,27 +82,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>2.24678159</X>
-					<Y>27.3204575</Y>
-					<Z>10.823905</Z>
-					<R00>0.144520566</R00>
-					<R01>0.684857368</R01>
-					<R02>-0.714201808</R02>
+					<X>-19.452755</X>
+					<Y>46.7305984</Y>
+					<Z>-2.1762569</Z>
+					<R00>-0.223167479</R00>
+					<R01>0.811873138</R01>
+					<R02>-0.53949815</R02>
 					<R10>-0</R10>
-					<R11>0.721779227</R11>
-					<R12>0.692123413</R12>
-					<R20>0.989501834</R20>
-					<R21>-0.100026064</R21>
-					<R22>0.104311943</R22>
+					<R11>0.553456247</R11>
+					<R12>0.832878232</R12>
+					<R20>0.974780142</R20>
+					<R21>0.185871333</R21>
+					<R22>-0.12351343</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>3.6751852</X>
-					<Y>25.9362106</Y>
-					<Z>10.6152811</Z>
+					<X>-18.3737564</X>
+					<Y>45.0648384</Y>
+					<Z>-1.9292295</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -327,9 +327,9 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Color3 name="Color">
-						<R>1</R>
-						<G>1</G>
-						<B>1</B>
+						<R>0.301960796</R>
+						<G>0.301960796</G>
+						<B>0.301960796</B>
 					</Color3>
 					<float name="Cover">0.5</float>
 					<float name="Density">0.699999988</float>
@@ -349,22 +349,15 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<string name="Name">Script</string>
 				<token name="RunContext">0</token>
 				<string name="ScriptGuid">{7939C92A-CC26-4E57-AD95-FCBFD7B083AD}</string>
-				<ProtectedString name="Source"><![CDATA[local WheatherModule = require(game.ReplicatedStorage.Ambiance.Wheather.WheatherModule)
+				<ProtectedString name="Source"><![CDATA[local WheatherModule = require(game.ReplicatedStorage.Ambiance.Wheather.Weather)
 local WindShake = require(game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake)
 
 
 wait(10)
-WheatherModule.ModifyClouds(1,1, Color3.new(0,0,0))
-game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake:SetAttribute("WindPower", 5)
-game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake:SetAttribute("WindSpeed", 5)
-game.ReplicatedStorage.Ambiance.Wheather.Wind.ReloadWindShake:FireAllClients()
-WindShake:UpdateAllObjectSettings()
-wait(5)
-WheatherModule.ClearWheather()
-wait(5)
-WheatherModule.Stormy()
-wait(5)
-WheatherModule.Cloudy()
+WheatherModule:SetClouds(0.7,2)
+WheatherModule:SetWind(10,10)
+
+
 ]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
@@ -33646,6 +33639,655 @@ end)]]></ProtectedString>
 				</Item>
 			</Item>
 		</Item>
+		<Item class="Model" referent="RBX4B718BCCD03548AF8A7AD2C169541E25">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<token name="LevelOfDetail">0</token>
+				<CoordinateFrame name="ModelMeshCFrame">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<SharedString name="ModelMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
+				<Vector3 name="ModelMeshSize">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<string name="Name">Door</string>
+				<bool name="NeedsPivotMigration">false</bool>
+				<Ref name="PrimaryPart">RBX91EE2D088A2F422596DE23BD83256411</Ref>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3a8</UniqueId>
+				<OptionalCoordinateFrame name="WorldPivotData">
+					<CFrame>
+						<X>25.2251587</X>
+						<Y>4.00000095</Y>
+						<Z>24.9702187</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CFrame>
+				</OptionalCoordinateFrame>
+			</Properties>
+			<Item class="Part" referent="RBX91EE2D088A2F422596DE23BD83256411">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>25.2251587</X>
+						<Y>4.00000095</Y>
+						<Z>24.9702187</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="CanQuery">true</bool>
+					<bool name="CanTouch">true</bool>
+					<bool name="CastShadow">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">256</token>
+					<string name="MaterialVariantSerialized"></string>
+					<string name="Name">Hinge</string>
+					<CoordinateFrame name="PivotOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">1</float>
+					<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3a9</UniqueId>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>0.299999952</X>
+						<Y>8</Y>
+						<Z>0.0999999046</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="MeshPart" referent="RBX8268344BB55F4793B8FA55D69005B1C9">
+				<Properties>
+					<bool name="Anchored">false</bool>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>25.2111816</X>
+						<Y>3.99999952</Y>
+						<Z>23.1867638</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="CanQuery">true</bool>
+					<bool name="CanTouch">true</bool>
+					<bool name="CastShadow">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4287006087</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<bool name="DoubleSided">false</bool>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<bool name="HasJointOffset">false</bool>
+					<bool name="HasSkinnedMesh">false</bool>
+					<Vector3 name="InitialSize">
+						<X>2.63976717</X>
+						<Y>50</Y>
+						<Z>22.6654606</Z>
+					</Vector3>
+					<Vector3 name="JointOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<BinaryString name="LODData"></BinaryString>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">256</token>
+					<string name="MaterialVariantSerialized"></string>
+					<Content name="MeshId"><url>rbxassetid://3410979343</url></Content>
+					<string name="Name">PorteTest</string>
+					<SharedString name="PhysicalConfigData">XfqvhOP4vbxxR/R3q0uA0w==</SharedString>
+					<BinaryString name="PhysicsData"></BinaryString>
+					<CoordinateFrame name="PivotOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="Reflectance">0</float>
+					<token name="RenderFidelity">1</token>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int64 name="SourceAssetId">3410979404</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureID"><null></null></Content>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3aa</UniqueId>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int name="VertexCount">0</int>
+					<Vector3 name="size">
+						<X>0.422362745</X>
+						<Y>7.99999905</Y>
+						<Z>3.62647343</Z>
+					</Vector3>
+				</Properties>
+				<Item class="Script" referent="RBX62B2A226DB3046CBA3187E9AF20F3907">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<bool name="Disabled">false</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Door</string>
+						<token name="RunContext">0</token>
+						<string name="ScriptGuid">{54D7FE2F-2A56-4769-BF2B-B4AC23DB4972}</string>
+						<ProtectedString name="Source"><![CDATA[local IsOpen = script.Parent.IsOpen
+local BaseHandleCFrame = script.Parent.Parent.Hinge.CFrame
+local PropsModule = require(game.ReplicatedStorage.Map.Props.PropsModule)
+
+
+script.Parent.Attachment.ProximityPrompt.Triggered:Connect(function()
+	if IsOpen.Value == true then
+		PropsModule.CloseDoor(script.Parent.Parent.Hinge)
+		IsOpen.Value = false
+	else
+		PropsModule.OpenDoor(script.Parent.Parent.Hinge)
+		IsOpen.Value = true
+	end
+end)
+]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3ab</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="Attachment" referent="RBXD6D624DB9B7749968031A055B05C67FF">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<string name="Name">Attachment</string>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3ac</UniqueId>
+						<bool name="Visible">false</bool>
+					</Properties>
+					<Item class="ProximityPrompt" referent="RBXE95E0D040CE94DEE9BE1DD384B504245">
+						<Properties>
+							<string name="ActionText">Open</string>
+							<BinaryString name="AttributesSerialize"></BinaryString>
+							<bool name="AutoLocalize">true</bool>
+							<bool name="ClickablePrompt">false</bool>
+							<bool name="Enabled">true</bool>
+							<token name="Exclusivity">0</token>
+							<token name="GamepadKeyCode">1000</token>
+							<float name="HoldDuration">0.5</float>
+							<token name="KeyboardKeyCode">101</token>
+							<float name="MaxActivationDistance">10</float>
+							<string name="Name">ProximityPrompt</string>
+							<string name="ObjectText"></string>
+							<bool name="RequiresLineOfSight">true</bool>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<int64 name="SourceAssetId">-1</int64>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<Vector2 name="UIOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3ad</UniqueId>
+						</Properties>
+					</Item>
+				</Item>
+				<Item class="WeldConstraint" referent="RBXA62FA119ED2C43C5BF0E67908236472F">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<CoordinateFrame name="CFrame0">
+							<X>0.0139770508</X>
+							<Y>1.43051147e-06</Y>
+							<Z>1.7834549</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<string name="Name">WeldConstraint</string>
+						<Ref name="Part0Internal">RBX8268344BB55F4793B8FA55D69005B1C9</Ref>
+						<Ref name="Part1Internal">RBX91EE2D088A2F422596DE23BD83256411</Ref>
+						<int64 name="SourceAssetId">-1</int64>
+						<int name="State">3</int>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3ae</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="BoolValue" referent="RBXA12CC54FA1CE4A95870D5FF669A1A420">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<string name="Name">IsOpen</string>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a3af</UniqueId>
+						<bool name="Value">false</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBXB5DB98F7E26E46E6B1B479A90BE05E9E">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">AmbientSounds</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007ade7</UniqueId>
+			</Properties>
+			<Item class="Sound" referent="RBXC9C4783790FA4FBEB31E34842517868B">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">true</bool>
+					<string name="Name">Wind3</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">0.400000006</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">1</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://362395087</url></Content>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007adea</UniqueId>
+					<float name="Volume">1.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX2E9EC4F395C3499BB3640CE0ED78C82E">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">true</bool>
+					<string name="Name">Night</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://9117114055</url></Content>
+					<int64 name="SourceAssetId">9117114055</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007adeb</UniqueId>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBXC06925AFBCB34AF58FBB3C5114F7BAF3">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>-415.11618</X>
+						<Y>40.5000191</Y>
+						<Z>505.270325</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">true</bool>
+					<bool name="CastShadow">false</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">true</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">256</token>
+					<string name="MaterialVariantSerialized"></string>
+					<string name="Name">ForestSoundPart</string>
+					<CoordinateFrame name="PivotOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">1</float>
+					<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007ade8</UniqueId>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>406.700012</X>
+						<Y>81</Y>
+						<Z>401.299988</Z>
+					</Vector3>
+				</Properties>
+				<Item class="Sound" referent="RBX2A5DC5DAF8514AA68B654CA6981CD3EE">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">true</bool>
+						<string name="Name">Sound</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">true</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://525663982</url></Content>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007adec</UniqueId>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">500</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Part" referent="RBX0B1FDB15DA054C31B92373BB796CA236">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>-415.11618</X>
+						<Y>40.5000191</Y>
+						<Z>-1.62966895</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">true</bool>
+					<bool name="CastShadow">false</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">true</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">256</token>
+					<string name="MaterialVariantSerialized"></string>
+					<string name="Name">ForestSoundPart</string>
+					<CoordinateFrame name="PivotOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">1</float>
+					<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007ade9</UniqueId>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>406.700012</X>
+						<Y>81</Y>
+						<Z>401.299988</Z>
+					</Vector3>
+				</Properties>
+				<Item class="Sound" referent="RBX29AB5A227BB04BBBA465C9EDD6AD943B">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">true</bool>
+						<string name="Name">Sound</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">true</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://525663982</url></Content>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<UniqueId name="UniqueId">2984414cfc54683702fcbfc10007aded</UniqueId>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">500</float>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
 	</Item>
 	<Item class="SoundService" referent="6">
 		<Properties>
@@ -37046,125 +37688,6 @@ return AmbianceModule
 						<UniqueId name="UniqueId">0722bea77310c42002f8e6590002e9d3</UniqueId>
 					</Properties>
 				</Item>
-				<Item class="ModuleScript" referent="RBXF42BA057B7B34156B35273F87A966EE6">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">WheatherModule</string>
-						<string name="ScriptGuid">{C30D2221-3C4F-4AFE-8FD1-C9A2445E7B10}</string>
-						<ProtectedString name="Source"><![CDATA[--[=[
-    @class WeatherModule
-
-    This is the class storing every functions used to handle the weather
-]=]
-
-local WeatherModule = {}
-
-local Clouds = game.Workspace.Terrain:WaitForChild("Clouds")
-local Wind = game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake
-local TweenService = game:GetService("TweenService")
-
---[=[
-    Used to change clouds (cover, density and color).
-
-    @param CloudsCover Number -- Changes how cloudy the sky is (between 0 and 1)
-    @param CloudsDensity Number -- Changes how strong or thick the clouds are (between 0 and 1)
-    @param CloudsColor Color3 -- Changes the color of the clouds
-]=]
-
-function WeatherModule.SetClouds(CloudsCover,CloudsDensity, CloudsColor)
-
-    local CloudsGoal = {}
-        CloudsGoal.Cover = CloudsCover
-        CloudsGoal.Density = CloudsDensity
-        CloudsGoal.Color = CloudsColor
-
-    local CloudsTween = TweenService:Create(Clouds, TweenInfo.new(5), CloudsGoal)
-
-    CloudsTween:Play()
-end
-
---[=[
-    Will clear the weather of everything.  
-    :::info
-    Does not take any parameters.
-    :::
-]=]
-function WeatherModule.Clear()
-    WeatherModule.SetClouds(0.5,0.7, Color3.fromRGB(255,255,255))  
-end
-
---[=[
-    Changes the weather to storm. 
-    Activates rain.  
-    Changes clouds' cover, density and color.  
-    Changes Wind's power and speed. 
-    :::info
-    Does not take any parameters.
-    :::
-]=]
-
-function WeatherModule.Storm()
-    WeatherModule.SetClouds(1,1,Color3.fromRGB(45, 45, 45))
-    Wind:SetAttribute("WindPower", 2)
-    Wind:SetAttribute("WindSpeed", 7)
-    game.ReplicatedStorage.Ambiance.Wheather.Wind.ReloadWindShake:FireAllClients()
-    WeatherModule.Windy()
-end
-
---- @deprecated V2 -- Use `WeatherModule.Clear` instead.
-function WeatherModule.Sunny()
-    
-end
-
-
---[=[
-    Plays a wind sound
-    :::info
-    Does not take any parameters.
-    :::
-]=]
-
-function WeatherModule.Windy()
-    local WindSound = game.ReplicatedStorage.Ambiance.Wheather.Wind.Wind3
-    WindSound:Play()
-end
-
---[=[
-    Makes the sky more covered
-    :::info
-    Does not take any parameters.
-    :::
-]=]
-
-function WeatherModule.Cloudy()
-    WeatherModule.SetClouds(0.8, 0.9, Color3.fromRGB(56, 54, 54))
-end
-
---[=[
-    :::caution
-    Unfinished
-    :::
-
-    Activates or deactivates the rain
-
-    :::info
-    It is used only for the rain.    
-    It does not modify anything related to the sky/clouds
-    :::
-]=]
-function WeatherModule.Rainy()
-  
-end
-
-
-return WeatherModule
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-						<UniqueId name="UniqueId">0722bea77310c42002f8e6590002e9d4</UniqueId>
-					</Properties>
-				</Item>
 				<Item class="Folder" referent="RBX933D1DB8117148758422C7766D5F545F">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
@@ -37180,7 +37703,13 @@ return WeatherModule
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">WindShake</string>
 							<string name="ScriptGuid">{90FE4FFA-A2B5-4905-AE80-4CFE06C4B021}</string>
-							<ProtectedString name="Source"><![CDATA[
+							<ProtectedString name="Source"><![CDATA[--[=[ 
+	@class WindShake
+	This is the class storing everything related to the wind system, the system was made by "boatbomber", see his post on the devforum to know more
+]=]
+
+
+
 local CollectionService = game:GetService("CollectionService")
 local RunService = game:GetService("RunService")
 local Settings = require(script.Settings)
@@ -37239,6 +37768,69 @@ function WindShake:Connect(funcName: string, event: RBXScriptSignal): RBXScriptC
 	end)
 end
 
+--[=[
+	Initializes the wind shake logic and adds shake to all tagged objects
+]=]
+
+function WindShake:Init()
+	if self.Initialized then
+		return
+	else
+		self.Initialized = true
+	end
+
+	-- Define attributes if they're undefined.
+	local power = script:GetAttribute("WindPower")
+	local speed = script:GetAttribute("WindSpeed")
+	local direction = script:GetAttribute("WindDirection")
+
+	if typeof(power) ~= "number" then
+		script:SetAttribute("WindPower", DEFAULT_SETTINGS.WindPower)
+	end
+
+	if typeof(speed) ~= "number" then
+		script:SetAttribute("WindSpeed", DEFAULT_SETTINGS.WindSpeed)
+	end
+
+	if typeof(direction) ~= "Vector3" then
+		script:SetAttribute("WindDirection", DEFAULT_SETTINGS.WindDirection)
+	end
+
+	-- Clear any old stuff.
+	self:Cleanup()
+
+	-- Wire up tag listeners.
+	local windShakeAdded = CollectionService:GetInstanceAddedSignal(COLLECTION_TAG)
+	self.AddedConnection = self:Connect("AddObjectShake", windShakeAdded)
+
+	local windShakeRemoved = CollectionService:GetInstanceRemovedSignal(COLLECTION_TAG)
+	self.RemovedConnection = self:Connect("RemoveObjectShake", windShakeRemoved)
+
+	for _,object in pairs(CollectionService:GetTagged(COLLECTION_TAG)) do
+		self:AddObjectShake(object)
+	end
+
+	-- Automatically start.
+	self:Resume()
+end
+
+--[=[
+	Adds an object to be shaken
+	@param object Part --- The object to apply shaking to
+	@param settingsTable WindShakeSettings --- A table containing the settings to apply to this object's shake
+
+	:::info
+	The 'WindShakeSettings' is a table storing values of the wind's direction, speed and power.     
+	Here is an example of how it is set in the module itself :
+	```lua
+	export type WindShakeSettings = {
+		WindDirection: Vector3?,
+		WindSpeed: number?,
+		WindPower: number?,
+	}
+	```
+	:::
+]=]
 function WindShake:AddObjectShake(object: BasePart, settingsTable: WindShakeSettings?)
 	if typeof(object) ~= "Instance" then
 		return
@@ -37268,6 +37860,11 @@ function WindShake:AddObjectShake(object: BasePart, settingsTable: WindShakeSett
 
 	ObjectShakeAddedEvent:Fire(object)
 end
+
+--[=[
+	Removes shake from an object
+	@param object Part --- The Object to remove shaking from
+]=]
 
 function WindShake:RemoveObjectShake(object: BasePart)
 	if typeof(object) ~= "Instance" then
@@ -37358,6 +37955,10 @@ function WindShake:Update()
 	debug.profileend()
 end
 
+--[=[
+	Halts the wind shake logic without clearing
+]=]
+
 function WindShake:Pause()
 	if self.UpdateConnection then
 		self.UpdateConnection:Disconnect()
@@ -37369,6 +37970,10 @@ function WindShake:Pause()
 
 	PausedEvent:Fire()
 end
+
+--[=[
+	Restarts the wind shake logic without clearing
+]=]
 
 function WindShake:Resume()
 	if self.Running then
@@ -37383,47 +37988,10 @@ function WindShake:Resume()
 	ResumedEvent:Fire()
 end
 
-function WindShake:Init()
-	if self.Initialized then
-		return
-	else
-		self.Initialized = true
-	end
 
-	-- Define attributes if they're undefined.
-	local power = script:GetAttribute("WindPower")
-	local speed = script:GetAttribute("WindSpeed")
-	local direction = script:GetAttribute("WindDirection")
-
-	if typeof(power) ~= "number" then
-		script:SetAttribute("WindPower", DEFAULT_SETTINGS.WindPower)
-	end
-
-	if typeof(speed) ~= "number" then
-		script:SetAttribute("WindSpeed", DEFAULT_SETTINGS.WindSpeed)
-	end
-
-	if typeof(direction) ~= "Vector3" then
-		script:SetAttribute("WindDirection", DEFAULT_SETTINGS.WindDirection)
-	end
-
-	-- Clear any old stuff.
-	self:Cleanup()
-
-	-- Wire up tag listeners.
-	local windShakeAdded = CollectionService:GetInstanceAddedSignal(COLLECTION_TAG)
-	self.AddedConnection = self:Connect("AddObjectShake", windShakeAdded)
-
-	local windShakeRemoved = CollectionService:GetInstanceRemovedSignal(COLLECTION_TAG)
-	self.RemovedConnection = self:Connect("RemoveObjectShake", windShakeRemoved)
-
-	for _,object in pairs(CollectionService:GetTagged(COLLECTION_TAG)) do
-		self:AddObjectShake(object)
-	end
-
-	-- Automatically start.
-	self:Resume()
-end
+--[=[
+	Halts and clears the wind shake logic and all object shakes
+]=]
 
 function WindShake:Cleanup()
 	if not self.Initialized then
@@ -37450,6 +38018,13 @@ function WindShake:Cleanup()
 	self.Initialized = false
 end
 
+--[=[
+	Updates the shake settings of an object already added
+	@param object Part --- The Object to apply shake settings to
+	@param settingsTable WindShakeSettings --- A table containing the settings to apply to this object's shake
+	@deprecated -- Use 'UpdateAllObjectSettings' instead.
+]=]
+
 function WindShake:UpdateObjectSettings(object: Instance, settingsTable: WindShakeSettings)
 	if typeof(object) ~= "Instance" then
 		return
@@ -37470,6 +38045,11 @@ function WindShake:UpdateObjectSettings(object: Instance, settingsTable: WindSha
 	ObjectShakeUpdatedEvent:Fire(object)
 end
 
+--[=[
+	Updates the shake settings of all active shakes
+	@param settingsTable WindShakeSettings --- The settings to apply to all objects’ shake
+]=]
+
 function WindShake:UpdateAllObjectSettings(settingsTable: WindShakeSettings)
 	if typeof(settingsTable) ~= "table" then
 		return
@@ -37482,6 +38062,12 @@ function WindShake:UpdateAllObjectSettings(settingsTable: WindShakeSettings)
 		ObjectShakeUpdatedEvent:Fire(obj)
 	end
 end
+
+--[=[
+	Sets the default settings for future object shake additions
+	@param settingsTable WindShakeSettings --- The settings to use as default
+	@deprecated -- Deprecated in favor of setting the Attributes of the WindShake modulescript
+]=]
 
 function WindShake:SetDefaultSettings(settingsTable: WindShakeSettings)
 	self:UpdateObjectSettings(script, settingsTable)
@@ -38140,6 +38726,142 @@ return OctreeRegionUtils]]></ProtectedString>
 						</Properties>
 					</Item>
 				</Item>
+				<Item class="ModuleScript" referent="RBX4E2B432455974DE390D0D1D2761EA370">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Weather</string>
+						<string name="ScriptGuid">{D66B48A2-73CB-4965-A0F4-E239D09F98D4}</string>
+						<ProtectedString name="Source"><![CDATA[--[=[
+    @class Weather
+
+    This is the class storing every functions used to handle the weather
+    
+]=]
+
+local Weather = {}
+
+local Clouds = game.Workspace.Terrain:WaitForChild("Clouds")
+local Wind = game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake
+local WindSound = workspace.AmbientSounds.Wind3
+local TweenService = game:GetService("TweenService")
+
+--[=[
+    Used to change clouds (cover, density and color).
+
+    @param CloudsCover Float -- Changes how cloudy the sky is (between 0 and 1)
+    @param CloudsDensity Float -- Changes how strong or thick the clouds are (between 0 and 1)
+    @param CloudsColor Color3 -- Changes the color of the clouds (optional)
+
+    ```lua
+    Weather:SetClouds(0.5, 0.7, Color3.fromRGB(255,255,255))
+    --OR
+    Weather:SetClouds(0.5,0.7) -- setting the color is optional
+    ```
+    :::info
+    * 'CloudsCover' and 'CloudsDensity' can have values above 1, but it will not be different than setting it to 1.
+    * Right now it takes 5s for the game to complete the modification, to change that just change the value in 'TweenInfo.new(5)'
+    :::
+
+]=]
+
+function Weather:SetClouds(CloudsCover: float,CloudsDensity: float, CloudsColor: Color3?)
+
+    local CloudsGoal = {}
+        CloudsGoal.Cover = CloudsCover
+        CloudsGoal.Density = CloudsDensity
+        CloudsGoal.Color = CloudsColor
+
+    local CloudsTween = TweenService:Create(Clouds, TweenInfo.new(5), CloudsGoal)
+
+    CloudsTween:Play()
+end
+
+--[=[
+    Used to change the speed and power of the wind by changing the attributes of the 'WindShake' module. 
+    @param WindPower Float --Changes how strong the wind is. 
+    @param WindSpeed Float --Changes how rapidly objects hit by the wind move
+    :::caution
+    Changing the wind way too fast may result in the game lagging and objects supposedly hit by the 'WindShake' module to not move
+    as they do not have enough time to adapt to the new settings
+    :::
+
+    ```lua
+    Weather:SetWind(0.5, 2, Vector3.new(0.5,0.5,0.5))
+    --OR
+    Weather:SetWind(0.5,2) -- Setting the direction is optional
+    ```
+]=]
+
+function Weather:SetWind(WindPower: number, WindSpeed: number, WindDirection: Vector3?)
+    Wind:SetAttribute("WindPower", WindPower)
+    Wind:SetAttribute("WindSpeed", WindSpeed)  
+    Wind:SetAttribute("WindDirection", WindDirection)
+    game.ReplicatedStorage.Ambiance.Wheather.Wind.ReloadWindShake:FireAllClients() 
+end
+
+--[=[
+    Will clear the weather of everything.  
+]=]
+function Weather:Clear()
+    Weather:SetClouds(0.5,0.7, Color3.fromRGB(255,255,255))  
+	Weather:Rain(false)
+    Weather:SetWind(0.5,2)
+	WindSound:Stop()
+end
+
+--[=[
+    Activates rain.  
+    Changes clouds' cover, density and color.  
+    Changes Wind's power and speed. 
+]=]
+
+function Weather:Storm()
+    Weather:SetClouds(1,1,Color3.fromRGB(45, 45, 45))
+    Weather:Windy()
+    Weather:SetWind(2,7)
+    Weather:Rain(true)
+end
+
+--[=[
+    Plays a wind sound
+    Changes wind's power and speed
+]=]
+
+function Weather:Windy()
+    Weather:SetWind(0.5,20)
+    WindSound:Play()
+end
+
+--[=[
+    Makes the sky more covered
+]=]
+
+function Weather:Cloudy()
+    Weather:SetClouds(0.8, 0.9, Color3.fromRGB(56, 54, 54))
+end
+
+--[=[
+    Activates or deactivates the rain
+    @param TurnOn boolean --- If true, the rain will be activated, if false it will be turned off
+
+    :::info 
+    It does not modify anything related to the sky/clouds.          
+    Which means you can use the function while the sky is completely clear, it will not change that. 
+    :::
+]=]
+function Weather:Rain(TurnOn: boolean)
+    script.Parent.RainEvent:FireAllClients(TurnOn)
+end
+
+
+return Weather
+]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">2984414cfc54683702fcbfc100030419</UniqueId>
+					</Properties>
+				</Item>
 			</Item>
 		</Item>
 		<Item class="Folder" referent="RBX9567F2B1E2FC4BC2A0F1EE2527AD82A1">
@@ -38179,7 +38901,7 @@ local TweenService = game:GetService("TweenService")
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateOpenAnim(Handle, Hinge)
+function PropsModule:GateOpen(Handle: Part, Hinge: Part)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -38194,6 +38916,8 @@ function PropsModule.GateOpenAnim(Handle, Hinge)
 	Handle.WeldConstraint.Enabled = false
 	Handle.Anchored = true
 	
+
+
 	HandleTween:Play()
 	HandleTween.Completed:Connect(function()
 		local HandleOpeningMovement = {} HandleOpeningMovement.CFrame = Handle.CFrame * CFrame.new(0.7,0,0)
@@ -38211,16 +38935,15 @@ function PropsModule.GateOpenAnim(Handle, Hinge)
 			end)
 		end)
 	end)
-
 end
 
 --[=[
-	The same as [PropsModule.GateOpenAnim](/api/PropsModule#GateOpenAnim) except it closes the gate instead
+	The same as [PropsModule.GateOpen](/api/PropsModule#GateOpen) except it closes the gate instead
 	@param Handle Part -- Important, it represents the lock of the gate
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateCloseAnim(Handle, Hinge)
+function PropsModule:GateClose(Handle: Part, Hinge: Part)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -38237,6 +38960,8 @@ function PropsModule.GateCloseAnim(Handle, Hinge)
 
 		local HandleClosingMovement = {} HandleClosingMovement.CFrame = Handle.CFrame * CFrame.new(-0.7,0,0)
 		local HandleClosingAnim = TweenService:Create(Handle, tweenInfo, HandleClosingMovement)
+
+
 
 		HandleClosingAnim:Play()
 		HandleClosingAnim.Completed:Connect(function()
@@ -38256,11 +38981,11 @@ function PropsModule.GateCloseAnim(Handle, Hinge)
 end
 
 --[=[
-	Used when players interact with a light switch (it animates it)
-	@param IsLightOn Bool -- Important, used to know whether or not the light is on and therefore if the switch should be on `On` or `Off`
+	Used when players interact with a light switch to make it move correctly.
+	@param IsLightOn boolean -- Important, used to know whether or not the light is on and therefore if the switch should be on `On` or `Off`
 ]=]
 
-function PropsModule.LightSwitch(IsLightOn)
+function PropsModule:LightSwitch(IsLightOn: boolean)
 	if IsLightOn.Value then 
 		IsLightOn.Parent.Part3.Attachment.ProximityPrompt.ActionText = "Turn On"
 		IsLightOn.Parent.Part.CFrame = IsLightOn.Parent.Part.CFrame * CFrame.Angles(math.rad(-20),0,0)
@@ -38271,11 +38996,11 @@ function PropsModule.LightSwitch(IsLightOn)
 end
 
 --[=[
-	Used to animate a door
+	Similar to [PropsModule.GateOpen](/api/PropsModule#GateOpe) except it is used for simple doors.
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.OpenDoor(Hinge)
+function PropsModule:OpenDoor(Hinge: Part)
 	local HingeCframe = Hinge.CFrame
 	local tweenInfo = TweenInfo.new(1,Enum.EasingStyle.Cubic,Enum.EasingDirection.InOut)
 	Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = false
@@ -38295,7 +39020,7 @@ end
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.CloseDoor(Hinge)
+function PropsModule:CloseDoor(Hinge: Part)
 	local HingeCframe = Hinge.CFrame
 	local tweenInfo = TweenInfo.new(1,Enum.EasingStyle.Cubic,Enum.EasingDirection.InOut)
 	Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = false
@@ -38308,6 +39033,33 @@ function PropsModule.CloseDoor(Hinge)
 		Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = true
 		Hinge.Parent.PorteTest.Attachment.ProximityPrompt.ActionText = "Open"
 	end)
+end
+
+--[=[
+	Turns On or Off street lights scattered all around the map.
+	@param IsNightOn boolean-- Important, if true, it will turn on every StreetLight, if false it will turn them off
+
+	:::caution
+	this can easily make the game lag if done too much and too quickly
+	:::
+]=]
+
+function PropsModule:StreetLights(IsNightOn: boolean)
+	if IsNightOn then
+		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Night, turn on the lights
+			if v:IsA("Model") and v.Name == "LanternPost" then
+				v.LightPart.PointLight.Enabled = true
+				v.Union.Color = Color3.fromRGB(253, 234, 141)
+            end
+        end 
+	else
+		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Day, turn off the lights
+            if v:IsA("Model") and v.Name == "LanternPost" then -- Do the same, but for models
+				v.LightPart.PointLight.Enabled = false
+				v.Union.Color = Color3.fromRGB(0,0,0)				
+            end
+        end
+	end	
 end
 
 return PropsModule
@@ -38474,6 +39226,21 @@ return PropsModule
 					</Properties>
 				</Item>
 			</Item>
+		</Item>
+		<Item class="ModuleScript" referent="RBX5FDD61FA9CAC4899B90E178141054839">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TestModule</string>
+				<string name="ScriptGuid">{02048D3B-D5DA-4814-845C-FC28BF2A0943}</string>
+				<ProtectedString name="Source"><![CDATA[local TestModule = {}
+
+return TestModule
+]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">58478f86efd78b6002fb7a440014a03b</UniqueId>
+			</Properties>
 		</Item>
 	</Item>
 	<Item class="LuaWebService" referent="RBX3F3E7E1CECE4421181EBD71C38729C22">

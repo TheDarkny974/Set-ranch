@@ -1,10 +1,11 @@
 --[=[
-    @class WeatherModule
+    @class Weather
 
     This is the class storing every functions used to handle the weather
+    
 ]=]
 
-local WeatherModule = {}
+local Weather = {}
 
 local Clouds = game.Workspace.Terrain:WaitForChild("Clouds")
 local Wind = game.ReplicatedStorage.Ambiance.Wheather.Wind.WindShake
@@ -16,12 +17,12 @@ local TweenService = game:GetService("TweenService")
 
     @param CloudsCover Float -- Changes how cloudy the sky is (between 0 and 1)
     @param CloudsDensity Float -- Changes how strong or thick the clouds are (between 0 and 1)
-    @param CloudsColor Color3 -- Changes the color of the clouds
+    @param CloudsColor Color3 -- Changes the color of the clouds (optional)
 
     ```lua
-    local WeatherModule = [Location Of The Module]
-
-    WeatherModule.SetClouds(0.5, 0.7, Color3.fromRGB(255,255,255))
+    Weather:SetClouds(0.5, 0.7, Color3.fromRGB(255,255,255))
+    --OR
+    Weather:SetClouds(0.5,0.7) -- setting the color is optional
     ```
     :::info
     * 'CloudsCover' and 'CloudsDensity' can have values above 1, but it will not be different than setting it to 1.
@@ -30,7 +31,7 @@ local TweenService = game:GetService("TweenService")
 
 ]=]
 
-function WeatherModule.SetClouds(CloudsCover,CloudsDensity, CloudsColor)
+function Weather:SetClouds(CloudsCover: float,CloudsDensity: float, CloudsColor: Color3?)
 
     local CloudsGoal = {}
         CloudsGoal.Cover = CloudsCover
@@ -52,25 +53,26 @@ end
     :::
 
     ```lua
-    local WeatherModule = [Location Of The Module]
-
-    WeatherModule.SetWind(0.5, 2)
+    Weather:SetWind(0.5, 2, Vector3.new(0.5,0.5,0.5))
+    --OR
+    Weather:SetWind(0.5,2) -- Setting the direction is optional
     ```
 ]=]
 
-function WeatherModule.SetWind(WindPower, WindSpeed)
+function Weather:SetWind(WindPower: number, WindSpeed: number, WindDirection: Vector3?)
     Wind:SetAttribute("WindPower", WindPower)
     Wind:SetAttribute("WindSpeed", WindSpeed)  
+    Wind:SetAttribute("WindDirection", WindDirection)
     game.ReplicatedStorage.Ambiance.Wheather.Wind.ReloadWindShake:FireAllClients() 
 end
 
 --[=[
     Will clear the weather of everything.  
 ]=]
-function WeatherModule.Clear()
-    WeatherModule.SetClouds(0.5,0.7, Color3.fromRGB(255,255,255))  
-	script.Parent.RainEvent:FireAllClients(false)
-    WeatherModule.SetWind(0.5,2)
+function Weather:Clear()
+    Weather:SetClouds(0.5,0.7, Color3.fromRGB(255,255,255))  
+	Weather:Rain(false)
+    Weather:SetWind(0.5,2)
 	WindSound:Stop()
 end
 
@@ -80,12 +82,11 @@ end
     Changes Wind's power and speed. 
 ]=]
 
-function WeatherModule.Storm()
-    WeatherModule.SetClouds(1,1,Color3.fromRGB(45, 45, 45))
-    WeatherModule.Windy()
-    WeatherModule.SetWind(2,7)
-    WeatherModule.Rain()
-    WeatherModule.Rain()
+function Weather:Storm()
+    Weather:SetClouds(1,1,Color3.fromRGB(45, 45, 45))
+    Weather:Windy()
+    Weather:SetWind(2,7)
+    Weather:Rain(true)
 end
 
 --[=[
@@ -93,8 +94,8 @@ end
     Changes wind's power and speed
 ]=]
 
-function WeatherModule.Windy()
-    WeatherModule.SetWind(0.5,20)
+function Weather:Windy()
+    Weather:SetWind(0.5,20)
     WindSound:Play()
 end
 
@@ -102,21 +103,22 @@ end
     Makes the sky more covered
 ]=]
 
-function WeatherModule.Cloudy()
-    WeatherModule.SetClouds(0.8, 0.9, Color3.fromRGB(56, 54, 54))
+function Weather:Cloudy()
+    Weather:SetClouds(0.8, 0.9, Color3.fromRGB(56, 54, 54))
 end
 
 --[=[
     Activates or deactivates the rain
+    @param TurnOn boolean --- If true, the rain will be activated, if false it will be turned off
 
     :::info 
     It does not modify anything related to the sky/clouds.          
     Which means you can use the function while the sky is completely clear, it will not change that. 
     :::
 ]=]
-function WeatherModule.Rain()
-    script.Parent.RainEvent:FireAllClients(true)
+function Weather:Rain(TurnOn: boolean)
+    script.Parent.RainEvent:FireAllClients(TurnOn)
 end
 
 
-return WeatherModule
+return Weather

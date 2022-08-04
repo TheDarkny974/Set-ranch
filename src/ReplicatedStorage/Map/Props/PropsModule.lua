@@ -13,7 +13,7 @@ local TweenService = game:GetService("TweenService")
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateOpen(Handle, Hinge)
+function PropsModule:GateOpen(Handle: Part, Hinge: Part)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -55,7 +55,7 @@ end
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.GateClose(Handle, Hinge)
+function PropsModule:GateClose(Handle: Part, Hinge: Part)
 	Handle.Attachment.ProximityPrompt.Enabled = false
 	local HandleCframe = Handle.CFrame
 	local HingeCframe = Hinge.CFrame
@@ -94,10 +94,10 @@ end
 
 --[=[
 	Used when players interact with a light switch to make it move correctly.
-	@param IsLightOn Bool -- Important, used to know whether or not the light is on and therefore if the switch should be on `On` or `Off`
+	@param IsLightOn boolean -- Important, used to know whether or not the light is on and therefore if the switch should be on `On` or `Off`
 ]=]
 
-function PropsModule.LightSwitch(IsLightOn)
+function PropsModule:LightSwitch(IsLightOn: boolean)
 	if IsLightOn.Value then 
 		IsLightOn.Parent.Part3.Attachment.ProximityPrompt.ActionText = "Turn On"
 		IsLightOn.Parent.Part.CFrame = IsLightOn.Parent.Part.CFrame * CFrame.Angles(math.rad(-20),0,0)
@@ -112,7 +112,7 @@ end
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.OpenDoor(Hinge)
+function PropsModule:OpenDoor(Hinge: Part)
 	local HingeCframe = Hinge.CFrame
 	local tweenInfo = TweenInfo.new(1,Enum.EasingStyle.Cubic,Enum.EasingDirection.InOut)
 	Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = false
@@ -132,7 +132,7 @@ end
 	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
 ]=]
 
-function PropsModule.CloseDoor(Hinge)
+function PropsModule:CloseDoor(Hinge: Part)
 	local HingeCframe = Hinge.CFrame
 	local tweenInfo = TweenInfo.new(1,Enum.EasingStyle.Cubic,Enum.EasingDirection.InOut)
 	Hinge.Parent.PorteTest.Attachment.ProximityPrompt.Enabled = false
@@ -149,14 +149,14 @@ end
 
 --[=[
 	Turns On or Off street lights scattered all around the map.
-	@param IsNightOn Bool-- Important, if true, it will turn on every StreetLight, if false it will turn them off
+	@param IsNightOn boolean-- Important, if true, it will turn on every StreetLight, if false it will turn them off
 
 	:::caution
 	this can easily make the game lag if done too much and too quickly
 	:::
 ]=]
 
-function PropsModule.StreetLights(IsNightOn)
+function PropsModule:StreetLights(IsNightOn: boolean)
 	if IsNightOn then
 		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Night, turn on the lights
 			if v:IsA("Model") and v.Name == "LanternPost" then
