@@ -1,7 +1,7 @@
 --[=[
     @class Weather
 
-    This is the class storing every functions used to handle the weather
+    This is the class storing everything used to handle the weather
     
 ]=]
 
@@ -17,7 +17,7 @@ local TweenService = game:GetService("TweenService")
 
     @param CloudsCover Float -- Changes how cloudy the sky is (between 0 and 1)
     @param CloudsDensity Float -- Changes how strong or thick the clouds are (between 0 and 1)
-    @param CloudsColor Color3 -- Changes the color of the clouds (optional)
+    @param CloudsColor Color3? -- Changes the color of the clouds (optional)
 
     ```lua
     Weather:SetClouds(0.5, 0.7, Color3.fromRGB(255,255,255))
@@ -48,8 +48,7 @@ end
     @param WindPower Float --Changes how strong the wind is. 
     @param WindSpeed Float --Changes how rapidly objects hit by the wind move
     :::caution
-    Changing the wind way too fast may result in the game lagging and objects supposedly hit by the 'WindShake' module to not move
-    as they do not have enough time to adapt to the new settings
+    Changing the wind repeatedly and too fast might make the objects hit by the wind glitch out or not move.
     :::
 
     ```lua
@@ -57,6 +56,11 @@ end
     --OR
     Weather:SetWind(0.5,2) -- Setting the direction is optional
     ```
+
+    :::info
+    For the moodifications to take effect, the game disables the Wind completely and reenables it, this is the only way 
+    I found to actually change the Wind's settings, although I did not look for too long in the WindShake module.
+    :::
 ]=]
 
 function Weather:SetWind(WindPower: number, WindSpeed: number, WindDirection: Vector3?)
@@ -109,11 +113,11 @@ end
 
 --[=[
     Activates or deactivates the rain
-    @param TurnOn boolean --- If true, the rain will be activated, if false it will be turned off
+    @param TurnOn boolean --- If true, the rain will be activated, if false it will be deactivated
 
     :::info 
-    It does not modify anything related to the sky/clouds.          
-    Which means you can use the function while the sky is completely clear, it will not change that. 
+    It does not modify anything related to the sky.          
+    Which means you can use the function while the sky is completely clear, it will stay clear.
     :::
 ]=]
 function Weather:Rain(TurnOn: boolean)

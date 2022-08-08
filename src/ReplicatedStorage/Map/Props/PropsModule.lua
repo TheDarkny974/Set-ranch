@@ -1,7 +1,7 @@
 --[=[
     @class PropsModule
 
-    This is the class storing every functions used to handle interactable props
+    This is the class storing everything functions used to handle interactable props
 ]=]
 
 local PropsModule = {}
@@ -10,7 +10,7 @@ local TweenService = game:GetService("TweenService")
 --[=[
 	Used to animate the opening of a gate (for gates in stables)
 	@param Handle Part -- Important, it represents the lock of the gate
-	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
+	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
 function PropsModule:GateOpen(Handle: Part, Hinge: Part)
@@ -52,7 +52,7 @@ end
 --[=[
 	The same as [PropsModule.GateOpen](/api/PropsModule#GateOpen) except it closes the gate instead
 	@param Handle Part -- Important, it represents the lock of the gate
-	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
+	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
 function PropsModule:GateClose(Handle: Part, Hinge: Part)
@@ -109,7 +109,7 @@ end
 
 --[=[
 	Similar to [PropsModule.GateOpen](/api/PropsModule#GateOpe) except it is used for simple doors.
-	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
+	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
 function PropsModule:OpenDoor(Hinge: Part)
@@ -129,7 +129,7 @@ end
 
 --[=[
 	The same as [PropsModule.OpenDoor](/api/PropsModule#OpenDoor) except it closes the door instead
-	@param Hinge Part-- Important, it represents the (often invisible) part the door is attached to (anything attached to it moves accordingly)
+	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
 function PropsModule:CloseDoor(Hinge: Part)
