@@ -62,7 +62,7 @@ function PropsModule:GateClose(Handle: Part, Hinge: Part)
 
 	local tweenInfo = TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut)
 
-	local DoorClose = {} DoorClose.CFrame = HingeCframe * CFrame.Angles(math.rad(0),0,0)
+	local DoorClose = {} DoorClose.CFrame = HingeCframe * CFrame.Angles(math.rad(-90),0,0)
 	local DoorCloseTween = TweenService:Create(Hinge, tweenInfo, DoorClose)
 
 	DoorCloseTween:Play()
@@ -78,7 +78,7 @@ function PropsModule:GateClose(Handle: Part, Hinge: Part)
 		HandleClosingAnim:Play()
 		HandleClosingAnim.Completed:Connect(function()
 			
-			local HandleClosingMovement2 = {} HandleClosingMovement2.CFrame = HandleCframe * CFrame.Angles(math.rad(0),0,0)
+			local HandleClosingMovement2 = {} HandleClosingMovement2.CFrame = HandleCframe * CFrame.Angles(math.rad(-90),0,0)
 			local HandleClosingAnim2 = TweenService:Create(Handle, tweenInfo, HandleClosingMovement2)
 
 			HandleClosingAnim2:Play()
@@ -149,29 +149,29 @@ end
 
 --[=[
 	Turns On or Off street lights scattered all around the map.
-	@param IsNightOn boolean-- Important, if true, it will turn on every StreetLight, if false it will turn them off
+	@param IsNightTime boolean-- Important, if true, it will turn on every StreetLight, if false it will turn them off
 
 	:::caution
 	this can easily make the game lag if done too much and too quickly
 	:::
 ]=]
 
-function PropsModule:StreetLights(IsNightOn: boolean)
-	if IsNightOn then
+function PropsModule:StreetLights(IsNightTime: boolean)
+	if IsNightTime then
 		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Night, turn on the lights
 			if v:IsA("Model") and v.Name == "LanternPost" then
 				v.LightPart.PointLight.Enabled = true
 				v.Union.Color = Color3.fromRGB(253, 234, 141)
-            end
-        end 
+			end
+		end 
 	else
 		for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Day, turn off the lights
-            if v:IsA("Model") and v.Name == "LanternPost" then -- Do the same, but for models
+			if v:IsA("Model") and v.Name == "LanternPost" then -- Do the same, but for models
 				v.LightPart.PointLight.Enabled = false
-				v.Union.Color = Color3.fromRGB(0,0,0)				
-            end
-        end
-	end	
+				v.Union.Color = Color3.fromRGB(0,0,0)	
+			end
+		end
+	end		
 end
 
 return PropsModule
