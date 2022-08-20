@@ -108,7 +108,7 @@ function PropsModule:LightSwitch(IsLightOn: boolean)
 end
 
 --[=[
-	Similar to [PropsModule.GateOpen](/api/PropsModule#GateOpe) except it is used for simple doors.
+	Similar to [PropsModule:GateOpen](/api/PropsModule#GateOpe) except it is used for simple doors.
 	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
@@ -128,7 +128,7 @@ function PropsModule:OpenDoor(Hinge: Part)
 end
 
 --[=[
-	The same as [PropsModule.OpenDoor](/api/PropsModule#OpenDoor) except it closes the door instead
+	The same as [PropsModule:OpenDoor](/api/PropsModule#OpenDoor) except it closes the door instead
 	@param Hinge Part-- Important, the main part of the door (the one that moves to open and close)
 ]=]
 
@@ -154,6 +154,7 @@ end
 	:::caution
 	this can easily make the game lag if done too much and too quickly
 	:::
+	@deprecated -- Deprecated in favor of PropsModule:LightState()
 ]=]
 
 function PropsModule:StreetLights(IsNightTime: boolean)
@@ -172,6 +173,38 @@ function PropsModule:StreetLights(IsNightTime: boolean)
 			end
 		end
 	end		
+end
+--[=[
+	Turns On or Off Lights that are tagged with "StreetLights"
+	@param IsNightTime boolean-- Important, if true, it will turn on every tagged-light, if false it will turn them off
+]=]
+function PropsModule:LightState(IsNightTime: boolean)
+	local Lights = game:GetService("CollectionService"):GetTagged("StreetLights")
+
+	local function TurnOff()
+		for index = 1, #Lights do 
+			Lights[index].Enabled = false
+			if Lights[index].Parent.Parent.union then
+				Lights[index].Parent.Parent.Union.Color = Color3.fromRGB(0,0,0)
+			end
+		end
+	end
+
+	local function TurnOn()
+		for index = 1, #Lights do 
+			Lights[index].Enabled = true
+			if Lights[index].Parent.Parent.union then
+				Lights[index].Parent.Parent.union.Color = Color3.fromRGB(253, 234, 141)
+			end
+		end
+	end
+
+	if IsNightTime then 
+		TurnOn()
+	else
+		TurnOff()
+	end
+
 end
 
 return PropsModule

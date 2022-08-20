@@ -1,0 +1,3 @@
+local HorseModule = {}
+
+return HorseModule
