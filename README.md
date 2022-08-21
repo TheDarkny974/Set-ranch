@@ -12,7 +12,7 @@ It focuses heavily on realism and immersion.
  [CURRENT API](https://thedarkny974.github.io/Set-ranch/)
 
  ### Planned
-[ ] Rideable Horses
-[ ] Performant Main Menu
-[ ] Complete UIModule
-[ ] More Advanced Main Menu
+- [ ] Rideable Horses
+- [x] Performant Main Menu
+- [ ] Complete UIModule
+- [ ] More Advanced Main Menu
