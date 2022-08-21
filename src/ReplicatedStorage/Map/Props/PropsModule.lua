@@ -1,7 +1,7 @@
 --[=[
     @class PropsModule
 
-    This is the class storing everything functions used to handle interactable props
+    This is the class storing everything used to handle interactable props
 ]=]
 
 local PropsModule = {}
