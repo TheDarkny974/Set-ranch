@@ -1,11 +1,18 @@
 # Set's Ranch
 
 ## The plan
-Set's ranch is a horse game being developped on Roblox.
+Set's ranch is a Roleplaying riding game being developped on Roblox.
 It focuses heavily on realism and immersion.
-
-So of course, it is planned to make the horses seem as real and alive as possible and not just a simple AI.
  
  ## Current systems
- There is a wind system mixed with a weather system.
- And an advanced Day/Night cycle system.
+ - [Wind](https://devforum.roblox.com/t/wind-shake-high-performance-wind-effect-for-leaves-and-foliage/1039806)
+ - Weather
+ - Advanced Day/Night cycle
+
+ [CURRENT API](https://thedarkny974.github.io/Set-ranch/)
+
+ ### Planned
+[ ] Rideable Horses
+[ ] Performant Main Menu
+[ ] Complete UIModule
+[ ] More Advanced Main Menu

@@ -15,8 +15,8 @@ local TweenService = game:GetService("TweenService")
 --[=[
     Used to change clouds (cover, density and color).
 
-    @param CloudsCover Float -- Changes how cloudy the sky is (between 0 and 1)
-    @param CloudsDensity Float -- Changes how strong or thick the clouds are (between 0 and 1)
+    @param CloudsCover number -- Changes how cloudy the sky is (between 0 and 1)
+    @param CloudsDensity number -- Changes how strong or thick the clouds are (between 0 and 1)
     @param CloudsColor Color3? -- Changes the color of the clouds (optional)
 
     ```lua
@@ -31,7 +31,7 @@ local TweenService = game:GetService("TweenService")
 
 ]=]
 
-function Weather:SetClouds(CloudsCover: float,CloudsDensity: float, CloudsColor: Color3?)
+function Weather:SetClouds(CloudsCover: number, CloudsDensity: number, CloudsColor: Color3?)
 
     local CloudsGoal = {}
         CloudsGoal.Cover = CloudsCover
@@ -45,8 +45,8 @@ end
 
 --[=[
     Used to change the speed and power of the wind by changing the attributes of the 'WindShake' module. 
-    @param WindPower Float --Changes how strong the wind is. 
-    @param WindSpeed Float --Changes how rapidly objects hit by the wind move
+    @param WindPower number --Changes how strong the wind is. 
+    @param WindSpeed number --Changes how rapidly objects hit by the wind move
     :::caution
     Changing the wind repeatedly and too fast might make the objects hit by the wind glitch out or not move.
     :::
