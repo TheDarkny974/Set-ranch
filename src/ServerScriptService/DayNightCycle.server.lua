@@ -1,13 +1,10 @@
 --Shadowcalen1's Day/Night Cycle script
 
 --time changer
-local CycleHandler = {}
 local mam = 60*6--minutes after midnight
-local timeShift = 2 --how many minutes you shift every "tick"
+local timeShift = 0.25 --how many minutes you shift every "tick"
 local waitTime = 1/30 --legnth of the tick
 local pi = math.pi
-
-CycleHandler.amplitudeB = 1
 --brightness
 local amplitudeB = 1
 local offsetB = 2
@@ -51,22 +48,13 @@ while true do
 	local b=((bColorList[pointer%24+1]-bColorList[pointer])*(mam-pointer+1))+bColorList[pointer]	
 	game.Lighting.ColorShift_Top = Color3.fromRGB(r,g,b)
 	game.Lighting.Atmosphere.Color = Color3.fromRGB(r,g,b)
+	game.Lighting.OutdoorAmbient = Color3.fromRGB(r,g,b)
 	--tick
 	wait(waitTime)
 
-    if game.Lighting:GetMinutesAfterMidnight() >= 60 * 6 and game.Lighting:GetMinutesAfterMidnight() < 60 * 18 then --Between 6am and 6pm (day)
-        for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Day, turn off the lights
-            if v:IsA("Model") and v.Name == "LanternPost" then -- Do the same, but for models
-				v.LightPart.PointLight.Enabled = false
-				v.Union.Color = Color3.fromRGB(0,0,0)				
-            end
-        end
-    else
-        for i, v in pairs(game.Workspace.NightLights:GetChildren()) do -- Night, turn on the lights
-			if v:IsA("Model") and v.Name == "LanternPost" then
-				v.LightPart.PointLight.Enabled = true
-				v.Union.Color = Color3.fromRGB(253, 234, 141)
-            end
-        end 
+	if game.Lighting:GetMinutesAfterMidnight() >= 60 * 6 and game.Lighting:GetMinutesAfterMidnight() < 60 * 18 then --Between 6am and 6pm (day)
+		game.ReplicatedStorage.Ambiance.IsNightTime.Value = false
+	else
+		game.ReplicatedStorage.Ambiance.IsNightTime.Value = true 
     end
 end
